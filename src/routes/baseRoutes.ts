@@ -1,5 +1,6 @@
 import * as Hapi from "@hapi/hapi";
-import { indexHandler, apiHandler } from "../controllers/baseControllers";
+import { indexHandler } from "../controllers/baseControllers";
+import { apiHandler } from "../controllers/apiController";
 
 export const baseRoutes: Hapi.ServerRoute<Hapi.ReqRefDefaults>[] = [
   {
