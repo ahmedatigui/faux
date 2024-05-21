@@ -1,7 +1,6 @@
-//import { faker  } from '@faker-js/faker';
-const { faker } = require('@faker-js/faker');
+import { faker } from "@faker-js/faker";
 
-function createRandomUser() {
+export function createRandomUser() {
   return {
     userId: faker.string.uuid(),
     username: faker.internet.userName(),
@@ -13,8 +12,6 @@ function createRandomUser() {
   };
 }
 
-const users = faker.helpers.multiple(createRandomUser, {
+export const users = faker.helpers.multiple(createRandomUser, {
   count: 5,
 });
-
-module.exports = { createRandomUser, users };

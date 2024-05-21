@@ -1,0 +1,1 @@
+export { baseRoutes } from "./baseRoutes";
