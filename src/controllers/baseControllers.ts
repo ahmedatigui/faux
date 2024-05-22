@@ -1,3 +1,3 @@
 export function indexHandler() {
-  return "Hello, Faux!";
+  return "<h1>.::Hello, Faux::.</h1>";
 }

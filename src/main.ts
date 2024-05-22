@@ -1,12 +1,19 @@
 "use strict";
 
 import * as Hapi from "@hapi/hapi";
+import * as qs from "qs";
+
 import { baseRoutes } from "./routes";
 
 export const init = async () => {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
+    query: {
+      parser: (query) => {
+        return qs.parse(query, { allowPrototypes: false });
+      },
+    },
   });
 
   server.route([...baseRoutes]);

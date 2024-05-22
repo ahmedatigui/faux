@@ -5,12 +5,13 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node --logError index.ts",
-    "lint": "pnpm eslint src/**/*",
+    "watch": "vite-node -w ./index.ts",
+    "dev": "vite-node ./index.ts",
+    "lint": "pnpm eslint ./index.ts src/**/*",
     "format": "pnpm exec prettier . --write"
   },
   "keywords": [],
-  "author": "",
+  "author": "ahmedatigui",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -26,8 +27,8 @@
     "eslint": "9.x",
     "globals": "^15.3.0",
     "prettier": "3.2.5",
-    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.10.0"
+    "typescript-eslint": "^7.10.0",
+    "vite-node": "^1.6.0"
   }
 }
