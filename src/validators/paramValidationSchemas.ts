@@ -1,19 +1,19 @@
 import * as Joi from "joi";
 
 import {
-  fakerModules,
+  dataEntityTypes,
   fakerFormats,
-  generateFiltersRegexPatter,
   filterOperators,
   supportedLocalization,
-} from "../utils/faker";
+} from "../utils/mockApiConfiguration";
+import { generateFiltersRegexPatter } from "../utils/helpers";
 
 export const querySchema = {
   data: Joi.object({
     locale: Joi.any().valid(...supportedLocalization),
-    niche: Joi.any().valid(...fakerModules),
+    niche: Joi.any().valid(...dataEntityTypes),
     format: Joi.any().valid(...fakerFormats),
-    count: Joi.number().min(0).max(1000),
+    count: Joi.number().min(0).max(10000),
   }),
   filters: Joi.array().items(
     Joi.string().pattern(generateFiltersRegexPatter(filterOperators)),

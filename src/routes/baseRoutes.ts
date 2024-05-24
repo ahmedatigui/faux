@@ -12,14 +12,15 @@ export const baseRoutes: Hapi.ServerRoute<Hapi.ReqRefDefaults>[] = [
   {
     method: "GET",
     path: "/api",
+    handler: apiHandler,
     options: {
       validate: {
         query: Joi.compile(querySchema), // query expects precompiled rules
-        failAction: (err) => {
-          throw err; // Provide detailed validation error responses
-        },
+        // failAction: (err) => {
+        //   throw err.info; // Provide detailed validation error responses
+        //   // return err;
+        // },
       },
     },
-    handler: apiHandler,
   },
 ];

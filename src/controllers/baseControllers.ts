@@ -1,3 +1,5 @@
+import { dataEntityTypes } from "../utils/mockApiConfiguration";
+
 export function indexHandler() {
-  return "<h1>.::Hello, Faux::.</h1>";
+  return { niches: dataEntityTypes };
 }
