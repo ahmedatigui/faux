@@ -1,6 +1,7 @@
 import { dataEntityTypes } from "./mockApiConfiguration";
 
 export type dataEntityType = (typeof dataEntityTypes)[number];
+export type sortOrder = "desc" | "asc";
 
 export interface User {
   userId: string;

@@ -3,26 +3,25 @@ import * as Joi from "joi";
 import {
   dataEntityTypes,
   fakerFormats,
-  filterOperators,
   supportedLocalization,
 } from "../utils/mockApiConfiguration";
-import { generateFiltersRegexPatter } from "../utils/helpers";
 
 export const querySchema = {
   data: Joi.object({
     locale: Joi.any().valid(...supportedLocalization),
     niche: Joi.any().valid(...dataEntityTypes),
     format: Joi.any().valid(...fakerFormats),
-    count: Joi.number().min(0).max(10000),
+    limit: Joi.number().min(0).max(10000),
   }),
-  filters: Joi.array().items(
-    Joi.string().pattern(generateFiltersRegexPatter(filterOperators)),
+  filters: Joi.object().pattern(
+    /^[a-zA-Z]+$/, // pattern lower/uppercase letters
+    Joi.string().pattern(/^[^:]+:[^:]+$/), // pattern "string:string"
   ),
   sorting: Joi.object({
     field: Joi.string(),
-    order: Joi.any().valid("desc", "asc"),
+    order: Joi.any().valid("desc", "asc", "rand"),
   }),
-  pagination: Joi.object({ page: Joi.number() }),
+  page: Joi.number(),
   options: Joi.object({
     seed: Joi.number(),
     nested: Joi.boolean().falsy("false").falsy(0).truthy("true").truthy(1),
