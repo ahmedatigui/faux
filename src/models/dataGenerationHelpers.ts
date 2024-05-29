@@ -20,9 +20,62 @@ import {
   TravelPlan,
   Recipe,
   Order,
+  dataEntityType,
 } from "../utils/types";
 
-export function createRandomUser(faker: Faker, count: number): User[] {
+export function selectDataGenerator(
+  faker: Faker,
+  niche: dataEntityType,
+  limit: number,
+) {
+  switch (niche.toLowerCase()) {
+    case "users":
+      return generateUser(faker, limit);
+    case "posts":
+      return generatePosts(faker, limit);
+    case "comments":
+      return generateComments(faker, limit);
+    case "albums":
+      return generateAlbums(faker, limit);
+    case "reviews":
+      return generateReviews(faker, limit);
+    case "todos":
+      return generateTodos(faker, limit);
+    case "addresses":
+      return generateAddresses(faker, limit);
+    case "companies":
+      return generateCompanies(faker, limit);
+    case "products":
+      return generateProducts(faker, limit);
+    case "payments":
+      return generatePayments(faker, limit);
+    case "vehicles":
+      return generateVehicles(faker, limit);
+    case "files":
+      return generateFiles(faker, limit);
+    case "socialmediaprofiles":
+      return generateSocialMediaProfiles(faker, limit);
+    case "educationalinstitutions":
+      return generateEducationalInstitutions(faker, limit);
+    case "financialtransactions":
+      return generateFinancialTransactions(faker, limit);
+    case "healthrecords":
+      return generateHealthRecords(faker, limit);
+    case "realestatelistings":
+      return generateRealEstateListings(faker, limit);
+    case "travelplans":
+      return generateTravelPlans(faker, limit);
+    case "recipes":
+      return generateRecipes(faker, limit);
+    case "orders":
+      return generateOrders(faker, limit);
+    default:
+      console.error("Unsupported niche:", niche);
+      return [];
+  }
+}
+
+export function generateUser(faker: Faker, count: number): User[] {
   return faker.helpers.multiple(
     () => ({
       userId: faker.string.uuid(),

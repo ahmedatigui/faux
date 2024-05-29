@@ -1,7 +1,15 @@
-import { dataEntityTypes } from "./mockApiConfiguration";
+import { dataEntityTypes, supportedLocalization } from "./mockApiConfiguration";
 
 export type dataEntityType = (typeof dataEntityTypes)[number];
 export type sortOrder = "desc" | "asc";
+
+export interface Payload {
+  data?: (object | string)[];
+  seed?: number;
+  locale?: (typeof supportedLocalization)[number];
+  limit?: number;
+  page?: number;
+}
 
 export interface User {
   userId: string;

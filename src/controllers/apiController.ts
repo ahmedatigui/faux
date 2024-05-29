@@ -1,7 +1,8 @@
 import * as Hapi from "@hapi/hapi";
-import { Data } from "../models/dataGenerator";
+import { Data, mockerData } from "../models";
+import { Payload } from "../utils/types";
 
-export async function apiHandler(request: Hapi.Request) {
+export async function getApiHandler(request: Hapi.Request) {
   const queryParams = request.query;
 
   const seed = queryParams?.options?.seed;
@@ -24,7 +25,20 @@ export async function apiHandler(request: Hapi.Request) {
   );
   const data = await model.init();
 
-  console.log(data);
-
   return { seed, locale, limit, niche, sortField, sortOrder, page, data };
+}
+
+export async function postApiHandler(request: Hapi.Request) {
+  const payload = request.payload as Payload;
+
+  const dataSchema = payload?.data;
+  const seed = payload?.seed;
+  const locale = payload?.locale;
+  const limit = payload?.limit;
+  const page = payload?.page;
+
+  const model = new mockerData(dataSchema, seed, locale, limit, page);
+  const data = await model.init();
+
+  return data;
 }

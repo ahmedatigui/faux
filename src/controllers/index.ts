@@ -1,2 +1,2 @@
 export { indexHandler } from "./baseControllers";
-export { apiHandler } from "./apiController";
+export { getApiHandler, postApiHandler } from "./apiController";
