@@ -9,7 +9,7 @@ This API allows you to generate localized, paginated, and customized data object
 1. Clone the repository to your local machine.
 
 ```
-$ git clone https://github.com/yourusername/faux.git
+$ git clone git@github.com:ahmedatigui/faux.git
 $ cd faux
 ```
 
