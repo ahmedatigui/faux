@@ -1,5 +1,8 @@
-import { dataEntityTypes } from "../utils/mockApiConfiguration";
+import {
+  dataEntityTypes,
+  supportedLocalization,
+} from "../utils/mockApiConfiguration";
 
 export function indexHandler() {
-  return { niches: dataEntityTypes };
+  return { niches: dataEntityTypes, locales: supportedLocalization };
 }

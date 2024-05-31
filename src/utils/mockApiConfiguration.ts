@@ -21,30 +21,6 @@ export const dataEntityTypes = [
   "orders",
 ] as const;
 
-export const fakerModules = [
-  "address",
-  "animal",
-  "color",
-  "commerce",
-  "company",
-  "database",
-  "date",
-  "finance",
-  "git",
-  "hacker",
-  "image",
-  "internet",
-  "lorem",
-  "location",
-  "music",
-  "name",
-  "phone",
-  "random",
-  "science",
-  "system",
-  "vehicle",
-] as const;
-
 export const fakerFormats = [
   "json",
   "yaml",
@@ -58,20 +34,6 @@ export const fakerFormats = [
   "markdown",
   "binary",
 ] as const;
-
-// https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters
-export const filterOperators = [
-  "==",
-  "!=",
-  ">",
-  "<",
-  ">=",
-  "<=",
-  "=@",
-  "!@",
-  "=~",
-  "!~",
-];
 
 export const supportedLocalization = [
   "af_ZA",

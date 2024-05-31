@@ -13,19 +13,13 @@ export const querySchema = Joi.object({
     format: Joi.any().valid(...fakerFormats),
     limit: Joi.number().min(0).max(10000),
   }),
-  filters: Joi.object().pattern(
-    /^[a-zA-Z]+$/, // pattern lower/uppercase letters
-    Joi.string().pattern(/^[^:]+:[^:]+$/), // pattern "string:string"
-  ),
   sorting: Joi.object({
     field: Joi.string(),
-    order: Joi.any().valid("desc", "asc", "rand"),
+    order: Joi.any().valid("desc", "asc"),
   }),
   page: Joi.number().min(1),
   options: Joi.object({
     seed: Joi.number(),
-    nested: Joi.boolean().falsy("false").falsy(0).truthy("true").truthy(1),
-    depth: Joi.number().min(1).max(3),
   }),
 });
 
